@@ -33,6 +33,7 @@ build:
       - node_modules
   script: 
     - npm config set cache=.cache
+    - npm install
     - npm run build
   environment: 
       name: production
