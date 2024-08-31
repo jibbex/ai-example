@@ -12,6 +12,8 @@ import {
 import './index.css';
 import "./App.css";
 
+const THIRTY_SECONDS = 0x7530;
+
 const render = () => renderToString(
     <HydrationProvider>
         <Head 
@@ -20,7 +22,7 @@ const render = () => renderToString(
             keywords={DEFAULT_KEYWORDS}  
             shareImage={DEFAULT_SHARE_IMAGE}
         />
-        <LandingPage />
+        <LandingPage interval={THIRTY_SECONDS} />
     </HydrationProvider>
 );
 
@@ -32,7 +34,7 @@ const renderStatic = () => renderToStaticMarkup(
             keywords={DEFAULT_KEYWORDS}
             shareImage={DEFAULT_SHARE_IMAGE}
         />
-        <LandingPage />
+        <LandingPage interval={THIRTY_SECONDS} />
     </HydrationProvider>
 );
 
