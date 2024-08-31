@@ -1,0 +1,55 @@
+.image {
+    position: absolute;
+    transform: rotate(-2deg);
+    width: 80vw;
+    margin: 0 10vw;
+    bottom: 10lvh;
+    border-radius: 2em;
+    max-width: 650px;
+    box-shadow: 
+        1px 1px 0 1px #f9f9fb, -1px 0 28px 0 rgba(34, 33, 81, 0.01), 
+        28px 28px 28px 0 rgba(34, 33, 81, 0.25);
+}
+
+.image-vault-container {
+    @apply bottom-[24lvh] md:bottom-[15lvh] top-[10lvh];
+    transform:
+        perspective(1000px)
+        rotateX(-6deg)
+        rotateY(26deg)
+        rotateZ(-2deg);
+}
+
+.image-vault {
+    border-radius: 2em;
+    @apply shadow-2xl shadow-indigo-950/60;
+}
+
+#section--1 img {
+    border-radius: 2em;
+    @apply shadow-2xl shadow-indigo-950/60 w-[30%] max-w-[500px] flex-1;
+}
+
+.txt {
+    @apply absolute rotate-[6deg] sm:bottom-[5lvh] sm:top-[auto] bottom-[10lvh] text-4xl sm:text-6xl lg:text-8xl sm:right-[2vw] sm:left-[2vw] p-8 max-w-full left-0 ;
+}
+
+span {
+    @apply text-2xl;
+    text-shadow: 0.1em -0.1em 0.4em #450b0ac4;
+    opacity: 0.4;
+    font-weight: 500;
+    margin: 1em 8%;
+}
+
+#section--1 h2 {
+    @apply text-6xl my-14 text-white/55;
+}
+
+#section--1 {
+    @apply content-center flex flex-wrap gap-[2em]  py-[2em] items-center justify-around;
+}
+
+#section--1 .info-txt {
+    @apply text-6xl md:text-8xl lg:text-[8em];
+}

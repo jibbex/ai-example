@@ -1,0 +1,21 @@
+#root {
+  width: 100%;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+@media(max-width: 600px) {
+    h1 {
+        top: 2.5lvh;
+        font-size: 15vw !important;
+        text-align: center;
+    }
+  }

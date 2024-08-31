@@ -1,0 +1,52 @@
+image: node:latest
+
+cache:
+  policy: pull-push
+  paths:
+    - .cache
+    - node_modules
+
+stages:
+  - install
+  - build
+  - deploy
+
+install:
+  stage: install
+  cache:
+    policy: pull-push
+    paths:
+      - .cache
+      - node_modules
+  script:
+    - npm config set cache=.cache
+    - npm install
+
+
+
+build:
+  stage: build
+  cache:
+    policy: pull
+    paths:
+      - .cache
+      - node_modules
+  script: 
+    - npm config set cache=.cache
+    - npm run build
+  environment: 
+      name: production
+  artifacts: 
+      paths:
+        - dist/
+
+deploy:
+    stage: deploy
+    environment: production
+    script:
+        - mkdir static
+        - mv dist/static/* static/
+    artifacts:
+        expire_in: 365 days
+        paths:
+            - static/

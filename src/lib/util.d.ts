@@ -1,0 +1,1 @@
+export type DebounceFunction = (fn: (ev: WheelEvent) => void, delay: number) => () => void;
