@@ -12,7 +12,7 @@ import useLocation from "./hooks/useLocation";
 import "./App.css";
 import React from "react";
 
-const THIRTY_SECONDS = 0x7530;
+const FIFTEEN_SECONDS = 0x3a98;
 
 /**
  * The main application component.
@@ -21,7 +21,7 @@ const THIRTY_SECONDS = 0x7530;
  */
 function App(): React.JSX.Element {
     const location = useLocation();
-    const thirtySec = React.useMemo(() => THIRTY_SECONDS, []);
+    const secs = React.useMemo(() => FIFTEEN_SECONDS, []);
 
     return (
         <HydrationProvider>
@@ -31,7 +31,7 @@ function App(): React.JSX.Element {
                 keywords={DEFAULT_KEYWORDS}
                 shareImage={DEFAULT_SHARE_IMAGE}
             />
-            <LandingPage interval={thirtySec} />
+            <LandingPage interval={secs} />
             {
                 !!location && <style>
                     {`

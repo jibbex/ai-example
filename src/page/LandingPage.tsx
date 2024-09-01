@@ -88,12 +88,12 @@ export function LandingPage({ interval }: LandingPageProps): React.JSX.Element {
      * @param {number} interval - The interval in milliseconds for scrolling to the next section.
      */
     React.useEffect(function (this: unknown) {
-        timerRef.current = setInterval(nextSection, interval ?? 5000) as unknown as number;
+        // timerRef.current = setInterval(nextSection, interval ?? 5000) as unknown as number;
         // const debounced = (debounce as DebounceFunction)(handleWheelEvent.bind(this), 1000);
-        window.addEventListener('wheel',  handleWheelEvent.bind(this), { passive: false });
+        // window.addEventListener('wheel',  handleWheelEvent.bind(this), { passive: false });
         return () => {
             clearInterval(timerRef.current);
-            window.removeEventListener('wheel', handleWheelEvent);
+            // window.removeEventListener('wheel', handleWheelEvent);
         };
     },
     [sectionRef, interval, nextSection, prevSection, timerRef, handleWheelEvent]);

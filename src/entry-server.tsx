@@ -12,7 +12,7 @@ import {
 import './index.css';
 import "./App.css";
 
-const THIRTY_SECONDS = 0x7530;
+const FIFTEEN_SECONDS = 0x3a98;
 
 const render = () => renderToString(
     <HydrationProvider>
@@ -22,7 +22,7 @@ const render = () => renderToString(
             keywords={DEFAULT_KEYWORDS}  
             shareImage={DEFAULT_SHARE_IMAGE}
         />
-        <LandingPage interval={THIRTY_SECONDS} />
+        <LandingPage interval={FIFTEEN_SECONDS} />
     </HydrationProvider>
 );
 
@@ -34,7 +34,7 @@ const renderStatic = () => renderToStaticMarkup(
             keywords={DEFAULT_KEYWORDS}
             shareImage={DEFAULT_SHARE_IMAGE}
         />
-        <LandingPage interval={THIRTY_SECONDS} />
+        <LandingPage interval={FIFTEEN_SECONDS} />
     </HydrationProvider>
 );
 
