@@ -378,7 +378,7 @@ function Crypto(): React.JSX.Element {
 
             }
         },
-        [charCount, device, hydrated]
+        [charCount, device.isDesktop, hydrated, startCircularMovement, stopCircularMovement]
     );
     /**
      * Binds an event listener to the window object on mount and removes it on dispose.
