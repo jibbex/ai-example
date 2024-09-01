@@ -51,7 +51,7 @@ export function LandingPage({ interval }: LandingPageProps): React.JSX.Element {
         } else {
             sectionRef.current = 0;
         }
-        console.log(sectionRef.current, sections.item(sectionRef.current));
+        
         sections.item(sectionRef.current).scrollIntoView({ behavior: 'smooth' });
     }, [sectionRef]);
     const prevSection = React.useCallback(() => {
@@ -62,7 +62,7 @@ export function LandingPage({ interval }: LandingPageProps): React.JSX.Element {
         } else {
             sectionRef.current = sections.length - 1;
         }
-        console.log(sectionRef.current);
+    
         sections.item(sectionRef.current).scrollIntoView({ behavior: 'smooth' });
     }, [sectionRef]);
     const handleWheelEvent = React.useCallback((ev: WheelEvent) => {
@@ -106,8 +106,8 @@ export function LandingPage({ interval }: LandingPageProps): React.JSX.Element {
                     <Hero title="Generative AI" />
                     {body.map((content, key) => (<Section id={`section--${key}`} key={key} content={content} />))}
                     <ClipSvg />
+                    <Footer content={footer} />
                 </main>
-                <Footer content={footer} />
             </DeviceProvider>
         </AosProvider>
     );

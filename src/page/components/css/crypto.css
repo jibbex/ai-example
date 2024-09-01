@@ -24,7 +24,7 @@
 .card-track {
     position: absolute;
     top: 0;
-    height: 100%;
+    height: 110lvh;
     width: var(--card-size);
     display: flex;
     align-items: center;
@@ -32,15 +32,17 @@
 
 .card-wrapper {
     width: 100%;
-    height: 100lvh;
+    min-height: 110lvh;
+    height: 100%;
     position: relative;
+    padding-bottom: 20lvh;
 }
 
 .card {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100%;
+    height: 110lvh;
     position: relative;
     margin: 0rem;
 }
@@ -79,7 +81,7 @@
     left: 0px;
     top: 0px;
     height: 100%;
-    max-height: 100vh;
+    max-height: 110lvh;
     max-width: 100vw;
     width: 100%;
     color: white;
