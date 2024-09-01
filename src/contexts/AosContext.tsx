@@ -18,6 +18,7 @@ function AosProvider({
 }: React.PropsWithChildren): JSX.Element {
     const aos = useAos({
         easing: 'ease-out-back',
+        useClassNames: true,
         duration: 1000,
         mirror: true,
     });
