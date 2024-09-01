@@ -422,7 +422,6 @@ const body: Body = [
         style: {
             display: "flex",
             flexWrap: "wrap",
-            padding: '0 15vw',
             alignItems: "center",
             justifyContent: "flex-start",
             zIndex: index + 2,
@@ -448,7 +447,7 @@ const body: Body = [
                     alignSelf: "flex-start",
                     color: "transparent",
                     backgroundClip: "text",
-                    textAlign: "left",
+                    textAlign: "center",
                     filter: "drop-shadow(-6px -3px 8px rgba(0, 0, 0, 0.3))",
                     backgroundImage:
                         "radial-gradient(circle 763px at 0%, rgb(241 197 194) 0%, rgb(245 215 117) 100%)",
