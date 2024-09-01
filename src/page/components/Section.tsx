@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { SectionProps } from './SectionProps';
 import {ContentElement, TYPE } from '@/../content';
-import { AosAttrs, Image } from '@/../content.d';
+import { AosAttrs, Image, Audio } from '@/../content.d';
 const getIndex = (arr: Array<React.Key>) => arr.length === 0 ? 0 : arr.length - 1;
 /**
  * Maps to the passed element Type to the corresponding JSX 

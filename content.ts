@@ -71,6 +71,10 @@ function typeToStr(type: TYPE): string {
             return "img";
         case TYPE.Lnk:
             return "a";
+        case TYPE.Audio:
+            return "audio";
+        default:
+            return "span";
     }
 }
 
@@ -453,11 +457,9 @@ const body: Body = [
                 className: "text-6xl md:text-8xl lg:text-10xl",
                 style: {
                     ...textStyle,
-                    color: "currentColor",
                     backgroundClip: "text",
                     opacity: '1',
                     position: 'relative',
-                    fonsSize: "0.5em !important",
                     filter: "drop-shadow(-6px -3px 8px rgba(0, 0, 0, 0.3))",
                     textShadow: "0.1em -0.1em 0.4em #450b0ac4",
                     fonsSize: "5em !important",

@@ -7,27 +7,24 @@ export interface ImageCardProps {
     alt: string;
     style?: object;
     className?: string;
-    key?: string;
     type: TYPE;
-    content?: string | ContentElement | null
+    content?: string | ContentElement | undefined
 }
 
 interface ImageItemProps {
-    src?: string | null;
-    alt?: string | null;
-    style?: object | null;
-    className?: string | null;
-    key?: string | null;
+    src?: string | undefined;
+    alt?: string | undefined;
+    style?: object | undefined;
+    className?: string | undefined;
     type: TYPE;
-    content?: string | ContentElement | null
+    content?: string | ContentElement | undefined
 }
 
-function ImageItem({src, alt, style, className, key, type, content}: ImageItemProps): React.JSX.Element {
+function ImageItem({src, alt, style, className, type, content}: ImageItemProps): React.JSX.Element {
     switch (type) {
         case TYPE.Img:
             return (
                 <img
-                    key={key}
                     src={src}
                     alt={alt}
                     style={style}
@@ -37,7 +34,6 @@ function ImageItem({src, alt, style, className, key, type, content}: ImageItemPr
         case TYPE.Div:
             return (
                 <div
-                    key={key}
                     style={style}
                     className={className}
                 >
@@ -47,7 +43,6 @@ function ImageItem({src, alt, style, className, key, type, content}: ImageItemPr
         case TYPE.Lnk:
             return (
                 <a
-                    key={key}
                     href={src}
                     style={style}
                     className={className}
@@ -66,7 +61,7 @@ function ImageItem({src, alt, style, className, key, type, content}: ImageItemPr
  * @param {ImageCardProps} props - The properties of the image card.
  * @returns {React.JSX.Element} The image card component.
  */
-export function ImageCard({ src, alt, style, className, key, type, content }: ImageCardProps): React.JSX.Element {
+export function ImageCard({ src, alt, style, className, type, content }: ImageCardProps): React.JSX.Element {
     return (
         <CardContainer className='left-0 md:left-[25vw] md:bottom-[-3em] lg:bottom-4'>
             <CardBody
@@ -82,7 +77,6 @@ export function ImageCard({ src, alt, style, className, key, type, content }: Im
                         alt={alt}
                         style={style}
                         className={className}
-                        key={key}
                         type={type}
                         content={content}
                     />
@@ -98,7 +92,6 @@ export function ImageCard({ src, alt, style, className, key, type, content }: Im
                         <ImageItem 
                             type={TYPE.Div}
                             content={content}
-                            key={`${key}--content`}
                         />
                     </CardItem>
                 }
