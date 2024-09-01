@@ -78,13 +78,10 @@
 }
 
 html, body {
-    scroll-behavior: smooth;
-    scroll-snap-type: both mandatory;
-    scroll-snap-align: start;
-    scroll-margin-top: max(1rem, env(safe-area-inset-top));
     min-height: 100%;
     width: 100%;
     overflow-x: clip;
+    hyphens: auto;
 }
 
 input {
