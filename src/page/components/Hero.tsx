@@ -17,7 +17,7 @@ const Hero = (props: HeroProps): JSX.Element => {
     }, [aso])
 
     return (
-        <section id="hero" style={{ minHeight: '110lvh', paddingBottom: '10em' }}>
+        <section id="hero" style={{ minHeight: '90lvh', paddingBottom: '10em' }}>
             <h1 id="vault-title"
                 className="absolute top-[100px] left-[2vw]" 
                 data-aos="zoom-out-right"

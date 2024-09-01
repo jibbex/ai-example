@@ -1,6 +1,7 @@
 section {
     position: relative;
     width: 100%;
+    padding: 10em 10vw;
     box-shadow: 0 0 6em -5em #000000db;
 }
 
@@ -19,6 +20,7 @@ section {
 
 section#hero {
     margin-top: -10lvh;
+    padding: 0;
     background-image: linear-gradient(45deg,  
         rgb(103, 30, 117) 11.2%, 
         rgb(252, 77, 2) 91.1% 
@@ -39,7 +41,7 @@ section#hero {
     );
 }
 
-.section--bg > *:not(footer) {
+.section--bg > *:not(footer):not(nav) {
     padding-bottom: 10em;
 }
 

@@ -100,7 +100,6 @@ const body: Body = [
             flexWrap: "wrap",
             flexDirection: "column",
             justifyContent: "flex-start",
-            paddingTop: '6lvh',
             marginTop: '-20lvh',
             clipPath: 'polygon(0 6%, 100% 0, 100% 105%, 0 100%)',
             zIndex: index + 2,
@@ -111,7 +110,7 @@ const body: Body = [
                 key: generateKey(++index).toString(16),
                 content: "Natural Language Processing",
                 "data-aos": "zoom-out-up",
-                "data-aos-delay": 0,
+                "data-aos-delay": 1600,
                 "data-aos-offset": 0,
                 "data-aos-anchor-placement": "bottom-bottom",
                 className: "txt",
@@ -192,8 +191,6 @@ const body: Body = [
             backgroundImage:
                 "linear-gradient(14deg, rgb(252, 76, 2) 11.2%, rgb(103, 30, 117) 91.1%)",
             boxShadow: "0 0 12em rgba(0, 0, 0, 0.45)",
-            padding: "0 10vw",
-            paddingTop: "5lvh",
             alignItems: "center",
             gap: "2em",
             display: "flex",
@@ -223,7 +220,7 @@ const body: Body = [
                     alignSelf: "flex-start",
                     color: "transparent",
                     backgroundClip: "text",
-                    textAlign: "left",
+                    textAlign: "center",
                     filter: "drop-shadow(-6px -3px 8px rgba(0, 0, 0, 0.3))",
                     backgroundImage:
                         "radial-gradient(circle 763px at 0%, rgb(241 197 194) 0%, rgb(245 215 117) 100%)",
@@ -319,6 +316,7 @@ const body: Body = [
                     color: "currentColor",
                     backgroundClip: "text",
                     position: 'relative',
+                    margin: '0',
                     fonsSize: "0.5em !important",
                     filter: "drop-shadow(-6px -3px 8px rgba(0, 0, 0, 0.3))",
                     textShadow: "0.1em -0.1em 0.4em #450b0ac4",
@@ -336,6 +334,7 @@ const body: Body = [
                     ...textStyle,
                     color: "currentColor",
                     backgroundClip: "text",
+                    margin: '0',
                     position: 'relative',
                     fonsSize: "0.5em !important",
                     filter: "drop-shadow(-6px -3px 8px rgba(0, 0, 0, 0.3))",
@@ -423,12 +422,12 @@ const body: Body = [
         style: {
             display: "flex",
             flexWrap: "wrap",
-            boxShadow: "box-shadow: 0 0 12em rgba(0 0 0 / 45%)",
             padding: '0 15vw',
             alignItems: "center",
             justifyContent: "flex-start",
             zIndex: index + 2,
             gap: "2em",
+            boxShadow: 'none',
             clipPath: 'polygon(0 6%, 100% 0, 100% 105%, 0 100%)',
         },
         elements: [
@@ -608,21 +607,21 @@ const footer: Footer = [
             type: TYPE.Paragraph,
             key: generateKey(++index).toString(16),
             className: "w-1/2 p-2 text-center text-sm md:text-lg ml-[20vw]",
-            content: "Contribute to 🛡️ Vault Boy and be a part of this open-source journey."
+            content: "Diese Seite ist Open Source und kann bei Github geklont werden."
         },
     ],
     [
         {
             key: generateKey(++index).toString(16),
             type: LINK_TYPE.Lnk,
-            url: "/privacy",
-            content: "Privacy Policy",
+            url: "https://michm.de/datenschutz",
+            content: "Datenschutz",
         },
         {
             key: generateKey(++index).toString(16),
             type: LINK_TYPE.Lnk,
-            url: "/legal",
-            content: "Legal Notice",
+            url: "https://michm.de/impressum",
+            content: "Impressum",
         },
         // {
         //     type: TYPE.Lnk,
