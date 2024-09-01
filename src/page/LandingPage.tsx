@@ -1,12 +1,25 @@
 import Hero from "./components/Hero";
 import { body, footer } from "./../../content";
-import Navbar from "@/Navbar";
 import { DeviceProvider } from "@/contexts/DeviceContext";
 import { AosProvider } from "@/contexts/AosContext";
 import { Section } from "@/page/components/Section";
 import { Footer } from "@/page/components/Footer";
+import { Button } from "@/components/ui/button";
 import './css/LandingPage.css';
 import React from "react";
+
+const PlayIcon = (props: React.SVGAttributes<SVGElement>) => (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6" { ...props }>
+        <path fill-rule="evenodd" d="M4.5 5.653c0-1.427 1.529-2.33 2.779-1.643l11.54 6.347c1.295.712 1.295 2.573 0 3.286L7.28 19.99c-1.25.687-2.779-.217-2.779-1.643V5.653Z" clip-rule="evenodd" />
+    </svg>
+);
+
+const PauseIcon = (props: React.SVGAttributes<SVGElement>) => (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-6" { ...props }>
+        <path fillRule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12ZM9 8.25a.75.75 0 0 0-.75.75v6c0 .414.336.75.75.75h.75a.75.75 0 0 0 .75-.75V9a.75.75 0 0 0-.75-.75H9Zm5.25 0a.75.75 0 0 0-.75.75v6c0 .414.336.75.75.75H15a.75.75 0 0 0 .75-.75V9a.75.75 0 0 0-.75-.75h-.75Z" clipRule="evenodd" />
+    </svg>
+);
+
 /**
  * SVG component for clipping paths.
  * @returns {JSX.Element} The SVG element.
@@ -41,6 +54,7 @@ const WHEEL_TRIGGER_DELAY = 0x1F4;
  * @returns {React.JSX.Element} The landing page component.
  */
 export function LandingPage({ interval }: LandingPageProps): React.JSX.Element {
+    const [isPlaying, setIsPlaying] = React.useState(false);
     const sectionRef: React.MutableRefObject<number> = React.useRef(0);
     const timerRef: React.MutableRefObject<number> = React.useRef(0);
     const lastScrollRef = React.useRef(0);
@@ -88,22 +102,30 @@ export function LandingPage({ interval }: LandingPageProps): React.JSX.Element {
      * @param {number} interval - The interval in milliseconds for scrolling to the next section.
      */
     React.useEffect(function (this: unknown) {
-        // timerRef.current = setInterval(nextSection, interval ?? 5000) as unknown as number;
-        // const debounced = (debounce as DebounceFunction)(handleWheelEvent.bind(this), 1000);
+        if (!isPlaying) {
+            return;
+        }
+
+        timerRef.current = setInterval(nextSection, interval ?? 5000) as unknown as number;
         // window.addEventListener('wheel',  handleWheelEvent.bind(this), { passive: false });
         return () => {
             clearInterval(timerRef.current);
-            // window.removeEventListener('wheel', handleWheelEvent);
+            window.removeEventListener('wheel', handleWheelEvent);
         };
     },
-    [sectionRef, interval, nextSection, prevSection, timerRef, handleWheelEvent]);
+    [sectionRef, interval, nextSection, prevSection, timerRef, handleWheelEvent, isPlaying]);
+
 
     return (
         <AosProvider>
             <DeviceProvider>
                 <main className="section--bg relative z-[1] shadow-md">
-                    <Navbar></Navbar>
                     <Hero title="Generative AI" />
+                    <nav className="sticky top-0 z-[1300] left-[90%] inline-block">
+                        <Button onClick={() => setIsPlaying(active => !active)} size="icon" variant="default" className="border-white/[0.4] rounded-full focus:ring-2 ring-yellow-200 text-black hover:shadow-sm shadow-xl hover:backdrop-blur-lg m-4">
+                            {isPlaying ? <PauseIcon className="h-6 w-6" /> : <PlayIcon className="h-8 w-8" />}
+                        </Button>
+                    </nav>
                     {body.map((content, key) => (<Section id={`section--${key}`} key={key} content={content} />))}
                     <ClipSvg />
                     <Footer content={footer} />
