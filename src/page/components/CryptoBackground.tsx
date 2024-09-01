@@ -434,7 +434,7 @@ function Crypto(): React.JSX.Element {
 
                         {/*    alt="AI generated Image" />*/}
                     <div
-                        className="z-20 bottom-2 absolute"
+                        className="z-20 bottom-8 absolute"
                         data-aos="zoom-in-left"
                         data-aos-mirror={true}
                         data-aos-offset={550}

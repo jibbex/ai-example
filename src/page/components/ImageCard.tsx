@@ -63,9 +63,9 @@ function ImageItem({src, alt, style, className, type, content}: ImageItemProps):
  */
 export function ImageCard({ src, alt, style, className, type, content }: ImageCardProps): React.JSX.Element {
     return (
-        <CardContainer className='left-0 md:left-[25vw] md:bottom-[-3em] lg:bottom-4'>
+        <CardContainer className='left-0 md:left-[25vw] md:bottom-[8em] lg:bottom-[10em]'>
             <CardBody
-                className="bg-gradient-to-br from-gray-100/20 via-red-400/50 to-indigo-900/20 backdrop-blur-xl relative group/card hover:shadow-2xl border-white/[0.6] min-w-[600px] w-full sm:w-[30rem] h-auto rounded-2xl p-0 border">
+                className="bg-gradient-to-br from-gray-100/20 via-red-400/50 to-indigo-900/20 backdrop-blur-xl relative group/card hover:shadow-2xl border-white/[0.6] min-w-[500px] w-full sm:w-[30rem] h-auto rounded-2xl p-0 border">
                 <CardItem
                     translateY="-10"
                     translateZ="-20"
