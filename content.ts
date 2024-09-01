@@ -324,7 +324,7 @@ const body: Body = [
             {
                 type: TYPE.Paragraph,
                 key: generateKey(++index).toString(16),
-                content: "So lassen sich beispielsweise aus Bildern und Videos eine Tiefenschätzung ableiten und daraus 3D-Modelle generieren. Um ein 3D-Modell aus den generierten Daten abzuleiten beötigt man das Ursprungsbild und die sogenannte Depth Map. Beide Bilder kann man dann mithilfe eines Algorithmuses, der in einen Shader rechnet zu einem 3D-Modell zusammenfügen. Ein Shader ist ein Programm, das auf der Grafikkarte ausgeführt wird und die Berechnungen für die Darstellung von 3D-Objekten übernimmt.",
+                content: "So lassen sich beispielsweise aus Bildern und Videos eine Tiefenschätzung ableiten und daraus 3D-Modelle generieren. Um ein 3D-Modell aus den generierten Daten abzuleiten benötigt man das Ursprungsbild und die sogenannte Depth Map. Beide Bilder kann man dann mithilfe eines Algorithmuses, der in einen Shader rechnet zu einem 3D-Modell zusammenfügen. Ein Shader ist ein Programm, das auf der Grafikkarte ausgeführt wird und die Berechnungen für die Darstellung von 3D-Objekten übernimmt.",
                 "data-aos-delay": 0,
                 "data-aos": "fade-right",
                 "data-aos-anchor-placement": "bottom-bottom",
