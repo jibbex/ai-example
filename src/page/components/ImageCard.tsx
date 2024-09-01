@@ -65,10 +65,11 @@ export function ImageCard({ src, alt, style, className, type, content }: ImageCa
     return (
         <CardContainer className='left-0 md:left-[25vw] md:bottom-[8em] lg:bottom-[10em]'>
             <CardBody
-                className="bg-gradient-to-br from-gray-100/20 via-red-400/50 to-indigo-900/20 backdrop-blur-xl relative group/card hover:shadow-2xl border-white/[0.6] min-w-[500px] w-full sm:w-[30rem] h-auto rounded-2xl p-0 border">
+                className="bg-gradient-to-br overflow-visible p-6 to-[#671e75] from-[#fc4d02] relative group shadow-lg hover:shadow-2xl border-white/[0.4] border-2 min-w-[500px] w-full sm:w-[30rem] h-auto rounded-2xl">
                 <CardItem
                     translateY="-10"
-                    translateZ="-20"
+                    translateX="-29"
+                    translateZ="100"
                     rotateZ={-4}
                     style={style}
                 >
@@ -76,17 +77,18 @@ export function ImageCard({ src, alt, style, className, type, content }: ImageCa
                         src={src}
                         alt={alt}
                         style={style}
-                        className={className}
+                        className={`${className} shadow-lg shadow-slate-800 group-hover:shadow-2xl group-hover:shadow-slate-800`}
                         type={type}
                         content={content}
                     />
                 </CardItem>
                 {!!content && 
                     <CardItem
-                        translateZ="30"
-                        translateY="-5"
+                        translateZ="160"
+                        translateY="56"
+                        translateX="-55"
                         rotateZ={2}
-                        className="p-6 bg-black/20 rounded-md my-2 mx-auto"
+                        className="p-6 bg-black/20 group-hover:bg-black/5 backdrop-blur-xl shadow-md shadow-slate-800/50 group-hover:shadow-2xl group-hover:shadow-slate-800/20  rounded-md my-2 mx-auto"
                         style={{ with: 'calc(100% - 0.5rem)' }}
                     >
                         <ImageItem 

@@ -41,15 +41,3 @@ span {
     font-weight: 500;
     margin: 1em 8%;
 }
-
-#section--1 h2 {
-    @apply text-6xl my-14 text-white/55;
-}
-
-#section--1 {
-    @apply content-center flex flex-wrap gap-[2em]  py-[2em] items-center justify-around;
-}
-
-#section--1 .info-txt {
-    @apply text-6xl md:text-8xl lg:text-[8em];
-}

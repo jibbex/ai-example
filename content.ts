@@ -102,6 +102,7 @@ const body: Body = [
             justifyContent: "flex-start",
             paddingTop: '6lvh',
             marginTop: '-20lvh',
+            clipPath: 'polygon(0 6%, 100% 0, 100% 105%, 0 100%)',
             zIndex: index + 2,
         },
         elements: [
@@ -199,6 +200,7 @@ const body: Body = [
             flexWrap: "wrap",
             justifyContent: "space-between",
             zindex: index + 2,
+            clipPath: 'polygon(0 6%, 100% 0, 100% 105%, 0 100%)',
         },
         elements: [
             {
@@ -211,17 +213,16 @@ const body: Body = [
                 "data-aos-anchor-placement": "bottom-bottom",
                 className: "txt",
                 style: {
-                    with: "100%",
-                    flex: '1 1 100%',
+                    display: "block",
                     fontWeight: 500,
                     bottom: 'auto',
                     position: 'relative',
-                    margin: '2em auto 0 2em',
+                    flex: '1 1 100%',
                     marginTop: '0',
                     left: 'auto',
+                    alignSelf: "flex-start",
                     color: "transparent",
                     backgroundClip: "text",
-                    pointerEvents: "none",
                     textAlign: "left",
                     filter: "drop-shadow(-6px -3px 8px rgba(0, 0, 0, 0.3))",
                     backgroundImage:
@@ -260,6 +261,7 @@ const body: Body = [
                     backgroundClip: "text",
                     position: 'relative',
                     fonsSize: "0.5em !important",
+                    margin: "0",
                     filter: "drop-shadow(-6px -3px 8px rgba(0, 0, 0, 0.3))",
                     textShadow: "0.1em -0.1em 0.4em #450b0ac4",
                 },
@@ -273,12 +275,13 @@ const body: Body = [
             gap: "2em",
             boxShadow: "box-shadow: 0 0 12em rgba(0 0 0 / 45%)",
             backgroundImage:
-                "linear-gradient(320deg, rgba(103, 30, 117, 1) 11.2%, rgba(252, 76, 2, 1) 91.1%)",
+                "linear-gradient(138deg, rgb(252, 76, 2) 11.2%, rgb(103, 30, 117) 130%)",
             alignItems: "center",
             display: "flex",
             flexDirection: "column",
             justifyContent: "flex-start",
             zIndex: index + 2,
+            clipPath: 'polygon(0 6%, 100% 0, 100% 105%, 0 100%)',
         },
         elements: [
             {
@@ -352,6 +355,7 @@ const body: Body = [
             flexDirection: "column",
             justifyContent: "flex-start",
             zIndex: index + 2,
+            clipPath: 'polygon(0 6%, 100% 0, 100% 105%, 0 100%)',
         },
         elements: [
             {
@@ -425,7 +429,7 @@ const body: Body = [
             justifyContent: "flex-start",
             zIndex: index + 2,
             gap: "2em",
-
+            clipPath: 'polygon(0 6%, 100% 0, 100% 105%, 0 100%)',
         },
         elements: [
             {
