@@ -443,7 +443,13 @@ function Crypto(): React.JSX.Element {
                         data-aos-anchor-placement="bottom-bottom"
                         data-aos-anchor="#vault-title"
                     >
-                        <ImageCard className="image-vault" src={proxyImage} alt="AI generated Image" type={TYPE.Img} />
+                        <ImageCard 
+                            className="image-vault" 
+                            src={proxyImage} 
+                            alt="AI generated Image" 
+                            type={TYPE.Img} 
+                            content="Entstand bei einer Erläuterung welche Aufgabe ein Reverse Proxy erfüllt."
+                        />
                     </div>
                     <div ref={lettersRef} className="card-letters"></div>
                 </div>
