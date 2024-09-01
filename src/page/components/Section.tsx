@@ -42,6 +42,8 @@ function ElementMapper({element, index}: React.PropsWithRef<{element: ContentEle
             return <div data-index={(keys[getIndex(keys)] = el.key ?? '')}  { ...(delete el.key && el as AosAttrs) } className={el.className} style={el.style}>{children !== undefined ? children : el.content}</div>;
         case TYPE.Img:
             return <img data-index={(keys[getIndex(keys)] = el.key ?? '')}  { ...(delete el.key && el as AosAttrs) } className={el.className} src={(el as Image).src as string} alt={(el as Image).alt as string} style={el.style}/>
+        case TYPE.Audio:
+            return <audio data-index={(keys[getIndex(keys)] = el.key ?? '')}  { ...(delete el.key && el as AosAttrs) } className={el.className} src={(el as Audio).src as string} controls={true} style={el.style}/>
         default:
             return <span data-index={(keys[getIndex(keys)] = el.key ?? '')} { ...(delete el.key && el as AosAttrs) } className={el.className}  style={el.style}>{el.content}</span>;
     }
