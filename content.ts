@@ -595,7 +595,7 @@ const footer: Footer = [
         {
             key: generateKey(++index).toString(16),
             type: LINK_TYPE.Img,
-            url: "https://github.com/jibbex",
+            url: "https://github.com/jibbex/ai-example",
             content: {
                 className: 'hover:opacity-100 opacity-40 fill-slate-400 footer-ico',
                 src: githubIcon,
