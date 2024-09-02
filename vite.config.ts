@@ -5,6 +5,7 @@ import react from "@vitejs/plugin-react-swc";
 
 // https://vitejs.dev/config/
 export default defineConfig({
+    base: "/ai-example/",
     plugins: [viteCompression(), react()],
     resolve: {
         alias: {
