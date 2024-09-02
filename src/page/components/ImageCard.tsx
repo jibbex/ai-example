@@ -88,7 +88,7 @@ export function ImageCard({ src, alt, style, className, type, content }: ImageCa
                         translateY="56"
                         translateX="-55"
                         rotateZ={2}
-                        className="p-6 bg-black/20 group-hover:bg-black/5 backdrop-blur-xl shadow-md shadow-slate-800/50 group-hover:shadow-2xl group-hover:shadow-slate-800/20  rounded-md my-2 mx-auto"
+                        className="p-6 bg-black/20 group-hover:bg-black/5 backdrop-blur-xl shadow-md shadow-slate-800/50 group-hover:shadow-2xl group-hover:shadow-slate-800/20  rounded-[2em] m-4"
                         style={{ with: 'calc(100% - 0.5rem)' }}
                     >
                         <ImageItem 

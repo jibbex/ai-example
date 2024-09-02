@@ -14,7 +14,7 @@ const getIndex = (arr: Array<React.Key>) => arr.length === 0 ? 0 : arr.length - 
 function ElementMapper({element, index}: React.PropsWithRef<{element: ContentElement, index: number}>): JSX.Element {
     const el = element as ContentElement;
     const keys: Array<React.Key> = [];
-    const hasChildren = !!el.content && typeof el.content !== 'string';
+    const hasChildren = !!el?.content && typeof el.content !== 'string';
     let children: JSX.Element[] = [];
 
     index++;
@@ -44,6 +44,9 @@ function ElementMapper({element, index}: React.PropsWithRef<{element: ContentEle
             return <img data-index={(keys[getIndex(keys)] = el.key ?? '')}  { ...(delete el.key && el as AosAttrs) } className={el.className} src={(el as Image).src as string} alt={(el as Image).alt as string} style={el.style}/>
         case TYPE.Audio:
             return <audio data-index={(keys[getIndex(keys)] = el.key ?? '')}  { ...(delete el.key && el as AosAttrs) } className={el.className} src={(el as Audio).src as string} controls={true} style={el.style}/>
+        case TYPE.WebGl:
+            return <div>...</div>
+            // return <DepthViewer data-index={(keys[getIndex(keys)] = el.key ?? '')} tresholds={{x: 20, y: 35}} { ...(delete el.key && el as AosAttrs) } className={el.className} style={el.style} width={(el as WebGl).width} height={(el as WebGl).height} texture={(el as WebGl).src as string} depthTexture={(el as WebGl).depthSrc as string}/>
         default:
             return <span data-index={(keys[getIndex(keys)] = el.key ?? '')} { ...(delete el.key && el as AosAttrs) } className={el.className}  style={el.style}>{el.content}</span>;
     }

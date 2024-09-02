@@ -7,6 +7,7 @@ import {
     Container,
     TextEl,
     Image,
+    WebGl,
     Body,
     Footer,
     LINK_TYPE,
@@ -73,6 +74,8 @@ function typeToStr(type: TYPE): string {
             return "a";
         case TYPE.Audio:
             return "audio";
+        case TYPE.WebGl:
+            return "canvas";
         default:
             return "span";
     }
@@ -110,8 +113,8 @@ const body: Body = [
                 key: generateKey(++index).toString(16),
                 content: "Natural Language Processing",
                 "data-aos": "zoom-out-up",
-                "data-aos-delay": 1600,
-                "data-aos-offset": 0,
+                "data-aos-delay": 0,
+                "data-aos-offset": 200,
                 "data-aos-anchor-placement": "bottom-bottom",
                 className: "txt",
                 style: {
@@ -348,6 +351,55 @@ const body: Body = [
         style: {
             backgroundImage:
                 "linear-gradient(14deg, rgb(252, 76, 2) 11.2%, rgb(103, 30, 117) 91.1%)",
+            boxShadow: "0 0 12em rgba(0, 0, 0, 0.45)",
+            alignItems: "center",
+            display: "flex",
+            flexWrap: "wrap",
+            flexDirection: "column",
+            justifyContent: "flex-start",
+            zIndex: index + 2,
+            clipPath: 'polygon(0 6%, 100% 0, 100% 105%, 0 100%)',
+        },
+        elements: [
+            {
+                type: TYPE.H2,
+                key: generateKey(++index).toString(16),
+                "data-aos": "zoom-out-up",
+                "data-aos-anchor-placement": "center-center",
+                className: "txt",
+                style: {
+                    display: "block",
+                    fontWeight: 500,
+                    bottom: 'auto',
+                    position: 'relative',
+                    marginTop: '0',
+                    left: 'auto',
+                    color: "transparent",
+                    backgroundClip: "text",
+                    textAlign: "center",
+                    filter: "drop-shadow(-6px -3px 8px rgba(0, 0, 0, 0.3))",
+                    backgroundImage:
+                        "radial-gradient(circle 763px at 0%, rgb(241 197 194) 0%, rgb(245 215 117) 100%)",
+                },
+                content:
+                    "Ein Bild mit Tiefe",
+            },
+            {
+                type: TYPE.WebGl,
+                key: generateKey(++index).toString(16),
+                src: "/dog-photo.jpg",
+                depthSrc: "/dog-depth-map.jpg",
+                width: 500,
+                height: 500,
+                content: '',
+            },
+        ],
+    },
+    {
+        key: generateKey(++index).toString(16),
+        style: {
+            backgroundImage:
+                "linear-gradient(14deg, rgb(252, 76, 2) 11.2%, rgb(103, 30, 117) 91.1%)",
             boxShadow: "0 0 12em rgba(0, 0, 0, 0.45)",            alignItems: "center",
             display: "flex",
             flexWrap: "wrap",
@@ -507,10 +559,9 @@ const body: Body = [
                     backgroundClip: "text",
                     opacity: '1',
                     position: 'relative',
-                    filter: "drop-shadow(-6px -3px 8px rgba(0, 0, 0, 0.3))",
                     textShadow: "0.1em -0.1em 0.4em #450b0ac4",
                     fonsSize: "5em !important",
-                    color: "#ffffff",
+                    color: "#ffffffaa",
                     fontStyle: "italic",
                     fontWeight: "200",
                     alignSelf: "flex-start",
@@ -574,12 +625,11 @@ const body: Body = [
                     alignSelf: "flex-start",
                     backgroundClip: "text",
                     opacity: '1',
-                    bottom: "2em",
+                    bottom: "3em",
                     position: 'relative',
-                    filter: "drop-shadow(-6px -3px 8px rgba(0, 0, 0, 0.3))",
                     textShadow: "0.1em -0.1em 0.4em #450b0ac4",
                     fonsSize: "5em !important",
-                    color: "#ffffff",
+                    color: "#ffffffaa",
                     fontStyle: "italic",
                     fontWeight: "200",
                     paddingLeft: "3em",
@@ -635,6 +685,6 @@ const footer: Footer = [
     ],
 ];
 
-export type { Body, Footer, Container, Image, ContentElement, TextEl };
+export type { Body, Footer, Container, Image, ContentElement, TextEl, WebGl };
 
 export {typeToStr, footer, body, TYPE, type Link, LINK_TYPE};

@@ -64,12 +64,10 @@
 .card-gradient {
     height: 100%;
     width: 100%;
-    /*position: absolute;*/
     background: radial-gradient(rgb(var(--background-light-rgb)) 40%,
             rgb(var(--hyperplexed-main-rgb)) 50%,
             rgb(var(--hyperplexed-main-light-rgb)),
             rgb(var(--hyperplexed-secondary-rgb)));
-    /*mix-blend-mode: darken;*/
     pointer-events: none;
     z-index: 3;
 }

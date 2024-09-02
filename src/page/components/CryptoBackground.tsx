@@ -437,11 +437,10 @@ function Crypto(): React.JSX.Element {
                         className="z-20 bottom-8 absolute"
                         data-aos="zoom-in-left"
                         data-aos-mirror={true}
-                        data-aos-offset={550}
+                        data-aos-offset={0}
                         data-aos-duration={700}
                         data-aos-delay={800}
                         data-aos-anchor-placement="bottom-bottom"
-                        data-aos-anchor="#vault-title"
                     >
                         <ImageCard 
                             className="image-vault" 

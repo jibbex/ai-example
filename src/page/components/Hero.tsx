@@ -7,7 +7,9 @@ interface HeroProps {
 }
 
 const Hero = (props: HeroProps): JSX.Element => {
-    const aso = useAos();
+    const aso = useAos({
+        mirror: true,
+    });
 
     React.useEffect(() => {
         aso?.init();
@@ -17,19 +19,27 @@ const Hero = (props: HeroProps): JSX.Element => {
     }, [aso])
 
     return (
-        <section id="hero" style={{ minHeight: '90lvh', paddingBottom: '10em' }}>
-            <h1 id="vault-title"
-                className="absolute top-[100px] left-[2vw]" 
-                data-aos="zoom-out-right"
-                data-aos-offset={0}
-                data-aos-delay={200}
-                data-aos-duration={1200}
-                data-aos-anchor-placement="top-bottom"
-                data-aos-mirror={true}
-            >
-                {props.title}
-            </h1>
-            <CryptBackground />
+        <section id="hero">
+            <div>
+                <h1 id="vault-title"
+                    className="absolute top-[40%] left-[2vw] text-5xl font-bold text-white min-h-[80lvh]" 
+                    data-aos="zoom-out-right"
+                    data-aos-offset={0}
+                    data-aos-delay={200}
+                    data-aos-duration={1200}
+                    data-aos-anchor-placement="top-bottom"
+                    data-aos-mirror={true}
+                    style={{
+                        fontFamily: 'Roboto',
+                        fontStyle: 'normal',
+                        fontWeight: 100,
+                        fontDisplay: 'swap',
+                    }}
+                >
+                    {props.title}
+                </h1>
+                <CryptBackground />
+            </div>
         </section>
     );
 };

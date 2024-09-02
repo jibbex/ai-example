@@ -14,6 +14,7 @@ enum TYPE {
     EM,
     Span,
     Audio,
+    WebGl,
 }
 
 export enum LINK_TYPE {
@@ -86,7 +87,7 @@ declare interface Container {
     style?: object | undefined;
     className?: string;
     key?: string;
-    elements: (ContentElement | Image | Audio)[];
+    elements: (ContentElement | Image | Audio | WebGl)[];
 }
 /**
  * This type represents a text element.
@@ -114,13 +115,20 @@ type Audio = AosAttrs & ContentElementType & {
     src: string;
 };
 
+type WebGl = AosAttrs & ContentElementType & {
+    src: string;
+    depthSrc: string;
+    width: number;
+    height: number;
+}
+
 type Body = Container[];
 
 type Footer = Array<Array<Image | Link<Image> | Link<TextEl> | ContentElement>>;
 
 export {
     TYPE,
-    ContentElement
+    ContentElement,
 };
 
 export type {
@@ -132,6 +140,7 @@ export type {
     ContentElementType,
     ElProps,
     Audio,
+    WebGl,
     TextEl,
     Link,
     Body,
