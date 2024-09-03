@@ -128,7 +128,6 @@ type Footer = Array<Array<Image | Link<Image> | Link<TextEl> | ContentElement>>;
 export {
     TYPE,
     ContentElement,
-    Sketch,
 };
 
 export type {

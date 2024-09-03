@@ -74,6 +74,8 @@ function typeToStr(type: TYPE): string {
             return "a";
         case TYPE.Audio:
             return "audio";
+        case TYPE.WebGl: 
+            return "canvas";
         default:
             return "span";
     }
@@ -179,7 +181,6 @@ const body: Body = [
                     color: "currentColor",
                     backgroundClip: "text",
                     position: 'relative',
-                    filter: "drop-shadow(-6px -3px 8px rgba(0, 0, 0, 0.3))",
                     textShadow: "0.1em -0.1em 0.4em #450b0ac4",
                 },
             },

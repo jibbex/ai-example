@@ -1,5 +1,41 @@
-import { FRAGMENT_SHADWER, VERTEX_SHADER } from 'shader';
-import GyroNorm from '@/src/lib/gyronorm';
+const FRAGMENT_SHADER = `
+#ifdef GL_ES
+  precision mediump float;
+#endif
+
+uniform vec4 resolution;
+uniform vec2 mouse;
+uniform vec2 threshold;
+uniform float time;
+uniform float pixelRatio;
+uniform sampler2D image0;
+uniform sampler2D image1;
+
+
+vec2 mirrored(vec2 v) {
+  vec2 m = mod(v,2.);
+  return mix(m,2.0 - m, step(1.0 ,m));
+}
+
+void main() {
+  // uvs and textures
+  vec2 uv = pixelRatio*gl_FragCoord.xy / resolution.xy ;
+  vec2 vUv = (uv - vec2(0.5))*resolution.zw + vec2(0.5);
+  vUv.y = 1. - vUv.y;
+  vec4 tex1 = texture2D(image1,mirrored(vUv));
+  vec2 fake3d = vec2(vUv.x + (tex1.r - 0.5)*mouse.x/threshold.x, vUv.y + (tex1.r - 0.5)*mouse.y/threshold.y);
+  gl_FragColor = texture2D(image0,mirrored(fake3d));
+}
+`;
+
+const VERTEX_SHADER = `
+attribute vec2 a_position;
+
+void main() {
+  gl_Position = vec4( a_position, 0, 1 );
+}
+`;
+import GyroNorm from '/src/vendor/gyronorm';
 
 /**
  * Debounce a function.
@@ -16,10 +52,10 @@ export function debounce(fn, delay) {
     };
 }
 
-export interface Size {
-    width: number;
-    height: number;
-}
+// type Size = {
+//     width: number;
+//     height: number;
+// }
 
 export const gyroNormInstance = new GyroNorm.GyroNorm();
 
@@ -32,18 +68,18 @@ export class Sketch {
      */
     constructor(
         container: HTMLCanvasElement | HTMLElement | undefined, 
-        size: Size, 
-        { 
-            x: number, 
-            y: number 
-        }, 
-        sources: { 
-            image: string;, 
-            depthMap: string 
-    }) {
+            size: Size,
+            { 
+                x: number,
+                y: number,
+            }, 
+            sources: { 
+            image: string,
+            depthMap: string,
+        }) {
         let canvas;
 
-        if (container === undefined) ‘
+        if (container === undefined) {
         canvas = document.createElement('canvas');
         document.body.appendChild(canvas);
     } else if(container.tagName === 'CANVAS') {
@@ -272,12 +308,12 @@ render() {
  * @param {function} callback - The callback function to call when the image is loaded.
  * @returns {HTMLImageElement} The loaded image.
  */
-function loadImage(url, callback) {
-    var image = new Image();
-    image.src = url;
-    image.onload = callback;
-    return image;
-}
+// function loadImage(url: string, callback: () => void): HTMLImageElement {
+//     var image = new Image();
+//     image.src = url;
+//     image.onload = callback;
+//     return image;
+// }
 
 /**
  * Load multiple images.
@@ -365,5 +401,4 @@ function clamp(number, lower, upper) {
         }
     }
     return number;
-}
 }

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Sketch } from '@/src/lib/util.js';
+import { Sketch } from '../../lib/util.ts';
 
 export interface Size {
     width: number;
