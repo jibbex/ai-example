@@ -1,4 +1,4 @@
-import { easingOptions, anchorPlacementOptions } from "aos";
+import { easingOptions, anchorPlacementOptions } from '../lib/"aos';
 
 enum TYPE {
     Img = 0,
@@ -14,6 +14,7 @@ enum TYPE {
     EM,
     Span,
     Audio,
+    WebGl,
 }
 
 export enum LINK_TYPE {
@@ -86,7 +87,7 @@ declare interface Container {
     style?: object | undefined;
     className?: string;
     key?: string;
-    elements: (ContentElement | Image | Audio)[];
+    elements: (ContentElement | Image | WebGl | Audio)[];
 }
 /**
  * This type represents a text element.
@@ -114,13 +115,20 @@ type Audio = AosAttrs & ContentElementType & {
     src: string;
 };
 
+type WebGl = AosAttrs & ContentElementType & {
+    size: Size;
+    sources: Source
+    treshold: { x:number, y: nunber };
+}
+
 type Body = Container[];
 
 type Footer = Array<Array<Image | Link<Image> | Link<TextEl> | ContentElement>>;
 
 export {
     TYPE,
-    ContentElement
+    ContentElement,
+    Sketch,
 };
 
 export type {
@@ -132,6 +140,7 @@ export type {
     ContentElementType,
     ElProps,
     Audio,
+    WebGl,
     TextEl,
     Link,
     Body,

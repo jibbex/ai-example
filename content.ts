@@ -10,6 +10,7 @@ import {
     Body,
     Footer,
     LINK_TYPE,
+    WebGl,
     ContentElement,
     ContentElementType,
 } from "./content.d";
@@ -348,6 +349,37 @@ const body: Body = [
         style: {
             backgroundImage:
                 "linear-gradient(14deg, rgb(252, 76, 2) 11.2%, rgb(103, 30, 117) 91.1%)",
+            boxShadow: "0 0 12em rgba(0, 0, 0, 0.45)",
+            alignItems: "center",
+            gap: "2em",
+            display: "flex",
+            flexWrap: "wrap",
+            justifyContent: "space-between",
+            zindex: index + 2,
+            clipPath: 'polygon(0 6%, 100% 0, 100% 105%, 0 100%)',
+        },
+        elements: [{
+            type: TYPE.WebGl,
+            key: generateKey(++index).toString(16),
+            size: {
+                width: 800,
+                height: 600,
+            },
+            sources: [
+                "/d.jpg",
+                "/d.png",
+            ],
+            threshold: {
+                x: 35,
+                y: 20,
+            },
+        }]
+    },
+    {
+        key: generateKey(++index).toString(16),
+        style: {
+            backgroundImage:
+                "linear-gradient(14deg, rgb(252, 76, 2) 11.2%, rgb(103, 30, 117) 91.1%)",
             boxShadow: "0 0 12em rgba(0, 0, 0, 0.45)",            alignItems: "center",
             display: "flex",
             flexWrap: "wrap",
@@ -635,6 +667,6 @@ const footer: Footer = [
     ],
 ];
 
-export type { Body, Footer, Container, Image, ContentElement, TextEl };
+export type { Body, Footer, Container, Image, ContentElement, TextEl, WebGl };
 
 export {typeToStr, footer, body, TYPE, type Link, LINK_TYPE};

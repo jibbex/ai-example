@@ -1,7 +1,8 @@
 import * as React from 'react';
 import { SectionProps } from './SectionProps';
 import {ContentElement, TYPE } from '@/../content';
-import { AosAttrs, Image, Audio } from '@/../content.d';
+import { AosAttrs, Image, Audio, WebGl } from '@/../content.d';
+import { DepthViewer  } from './DepthViewer';
 const getIndex = (arr: Array<React.Key>) => arr.length === 0 ? 0 : arr.length - 1;
 /**
  * Maps to the passed element Type to the corresponding JSX 
@@ -44,6 +45,8 @@ function ElementMapper({element, index}: React.PropsWithRef<{element: ContentEle
             return <img data-index={(keys[getIndex(keys)] = el.key ?? '')}  { ...(delete el.key && el as AosAttrs) } className={el.className} src={(el as Image).src as string} alt={(el as Image).alt as string} style={el.style}/>
         case TYPE.Audio:
             return <audio data-index={(keys[getIndex(keys)] = el.key ?? '')}  { ...(delete el.key && el as AosAttrs) } className={el.className} src={(el as Audio).src as string} controls={true} style={el.style}/>
+        case TYPE.WebGl:
+            return <DepthViewer data-index={(keys[getIndex(keys)] = el.key ?? '')}  { ...(delete el.key && el as AosAttrs) } className={el.className} style={el.style} size={(el as WebGl).size} sources={(el as WebGl).sources} threshold={(el as WebGl).treshold}/>
         default:
             return <span data-index={(keys[getIndex(keys)] = el.key ?? '')} { ...(delete el.key && el as AosAttrs) } className={el.className}  style={el.style}>{el.content}</span>;
     }
