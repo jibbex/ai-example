@@ -1,4 +1,4 @@
-import Hero from "src/page/components/Hero";
+import { Hero } from "./components/Hero.tsx";
 import { body, footer } from "./../../content";
 import { DeviceProvider } from "@/contexts/DeviceContext";
 import { AosProvider } from "@/contexts/AosContext";
@@ -8,17 +8,17 @@ import { Button } from "@/components/ui/button";
 import './css/LandingPage.css';
 import React from "react";
 
-// const PlayIcon = () => (
-//     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill='currentColor' className='size-6'>
-//         <path fillRule="evenodd" d="M4.5 5.653c0-1.427 1.529-2.33 2.779-1.643l11.54 6.347c1.295.712 1.295 2.573 0 3.286L7.28 19.99c-1.25.687-2.779-.217-2.779-1.643V5.653Z" clipRule="evenodd" />
-//     </svg>
-// );
+const PlayIcon = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill='currentColor' className='size-6'>
+        <path fillRule="evenodd" d="M4.5 5.653c0-1.427 1.529-2.33 2.779-1.643l11.54 6.347c1.295.712 1.295 2.573 0 3.286L7.28 19.99c-1.25.687-2.779-.217-2.779-1.643V5.653Z" clipRule="evenodd" />
+    </svg>
+);
 
-// const Hero = () => (
-//     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill='currentColor' className='size-6'>
-//         <path fillRule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12ZM9 8.25a.75.75 0 0 0-.75.75v6c0 .414.336.75.75.75h.75a.75.75 0 0 0 .75-.75V9a.75.75 0 0 0-.75-.75H9Zm5.25 0a.75.75 0 0 0-.75.75v6c0 .414.336.75.75.75H15a.75.75 0 0 0 .75-.75V9a.75.75 0 0 0-.75-.75h-.75Z" clipRule="evenodd" />
-//     </svg>
-// );
+const PauseIcon = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill='currentColor' className='size-6'>
+        <path fillRule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12ZM9 8.25a.75.75 0 0 0-.75.75v6c0 .414.336.75.75.75h.75a.75.75 0 0 0 .75-.75V9a.75.75 0 0 0-.75-.75H9Zm5.25 0a.75.75 0 0 0-.75.75v6c0 .414.336.75.75.75H15a.75.75 0 0 0 .75-.75V9a.75.75 0 0 0-.75-.75h-.75Z" clipRule="evenodd" />
+    </svg>
+);
 
 /**
  * SVG component for clipping paths.

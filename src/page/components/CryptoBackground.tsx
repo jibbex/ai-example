@@ -166,7 +166,7 @@ function randomString(len: number): string {
  *
  * @returns {React.JSX.Element} The Crypto component.
  */
-function Crypto(): React.JSX.Element {
+export function Crypto(): React.JSX.Element {
     const device = React.useContext(DeviceContext);
     const hydrated = React.useContext(HydrationContext);
     const [isMouseMoving, setIsMouseMoving] = React.useState<boolean>(false);
@@ -426,13 +426,6 @@ function Crypto(): React.JSX.Element {
                     onMouseMove={handleMouseMove}
                     className="card"
                 >
-                    {/*<div className="card-image right-[5vw] bottom-[5lvh] size-[70%] transform-gpu rotate-[2deg] skew-y-1 translate-y-[-2em]">*/}
-                        {/*<img*/}
-                        {/*    className={"card-image"}*/}
-                        {/*    style={{ top: "-3em", borderRadius: "1em", zIndex: 10, right: "2vw" }}*/}
-                        {/*    src={proxyImage}*/}
-
-                        {/*    alt="AI generated Image" />*/}
                     <div
                         className="z-20 bottom-8 absolute"
                         data-aos="zoom-in-left"
@@ -440,7 +433,8 @@ function Crypto(): React.JSX.Element {
                         data-aos-offset={0}
                         data-aos-duration={700}
                         data-aos-delay={800}
-                        data-aos-anchor-placement="bottom-bottom"
+                        data-aos-anchor-placement="center-bottom"
+                        data-aos-anchor="#vault-title"
                     >
                         <ImageCard 
                             className="image-vault" 
@@ -456,5 +450,3 @@ function Crypto(): React.JSX.Element {
         </div>
     );
 }
-
-export default Crypto;
