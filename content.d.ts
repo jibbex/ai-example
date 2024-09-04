@@ -15,6 +15,7 @@ enum TYPE {
     Span,
     Audio,
     WebGl,
+    Iframe,
 }
 
 export enum LINK_TYPE {
@@ -120,6 +121,12 @@ type WebGl = AosAttrs & ContentElementType & {
     depthSrc: string;
     width: number;
     height: number;
+    xTreshold: number,
+    yTreshold: number,
+}
+
+type Ifeame = AosAttrs & ContentElementType & {
+    src: string;
 }
 
 type Body = Container[];

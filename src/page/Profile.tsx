@@ -10,4 +10,3 @@ export function Profile(): JSX.Element {
             <Footer content={footer} />
         </DeviceProvider>
     );
-}
