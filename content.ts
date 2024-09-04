@@ -76,8 +76,6 @@ function typeToStr(type: TYPE): string {
             return "audio";
         case TYPE.WebGl:
             return "canvas";
-        default:
-            return "span";
     }
 }
 
