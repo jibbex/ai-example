@@ -77,6 +77,8 @@ function typeToStr(type: TYPE): string {
         case TYPE.WebGl:
             return "canvas";
     }
+
+    return 'null';
 }
 
 const textStyle = {
@@ -387,8 +389,10 @@ const body: Body = [
                 key: generateKey(++index).toString(16),
                 src: "/dog-photo.jpg",
                 depthSrc: "/dog-depth-map.jpg",
-                width: 500,
-                height: 500,
+                size: {
+                    width: 500,
+                    height: 500,
+                },
                 content: '',
             },
         ],

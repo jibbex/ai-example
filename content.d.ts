@@ -119,10 +119,12 @@ type Audio = AosAttrs & ContentElementType & {
 type WebGl = AosAttrs & ContentElementType & {
     src: string;
     depthSrc: string;
-    width: number;
-    height: number;
     xTreshold: number,
     yTreshold: number,
+    size: {
+        width: number,
+        height: number,
+    };
 }
 
 type Ifeame = AosAttrs & ContentElementType & {

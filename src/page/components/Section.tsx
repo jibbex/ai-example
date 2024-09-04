@@ -1,8 +1,7 @@
 import * as React from 'react';
 import { SectionProps } from './SectionProps';
 import {ContentElement, TYPE } from '@/../content';
-import { AosAttrs, Image, Audio, WebGl } from '@/../content.d';
-import Image3d from './Image3d';  
+import { AosAttrs, Image, Audio } from '@/../content.d';
 const getIndex = (arr: Array<React.Key>) => arr.length === 0 ? 0 : arr.length - 1;
 /**
  * Maps to the passed element Type to the corresponding JSX 
@@ -45,28 +44,13 @@ function ElementMapper({element, index}: React.PropsWithRef<{element: ContentEle
             return <img data-index={(keys[getIndex(keys)] = el.key ?? '')}  { ...(delete el.key && el as AosAttrs) } className={el.className} src={(el as Image).src as string} alt={(el as Image).alt as string} style={el.style}/>
         case TYPE.Audio:
             return <audio data-index={(keys[getIndex(keys)] = el.key ?? '')}  { ...(delete el.key && el as AosAttrs) } className={el.className} src={(el as Audio).src as string} controls={true} style={el.style}/>;
-        case TYPE.Iframe: {
-             return (
-                <iframe data-index={(keys[getIndex(keys)] = el.key ?? '')}  { ...(delete el.key && el as AosAttrs) } className={el.className} src={(el as Image).src as string} style={el.style} />
-            )
-        }
-        case TYPE.WebGl:
-            return (
-                <div>
-                    <Image3d 
-                        data-index={(keys[getIndex(keys)] = el.key ?? '')} 
-                        tresholds={{x: 20, y: 35}} 
-                        // { ...(delete el.key && el as AosAttrs) } 
-                        size={{width: (el as WebGl).width, height: (el as WebGl).height}}
-                        src={(el as WebGl).src as string} 
-                        depthTexture={(el as WebGl).depthSrc as string}
-                    />
-                </div>
-            );
-        // return <DepthViewer data-index={(keys[getIndex(keys)] = el.key ?? '')} tresholds={{x: 20, y: 35}} { ...(delete el.key && el as AosAttrs) } className={el.className} style={el.style} width={(el as WebGl).width} height={(el as WebGl).height} texture={(el as WebGl).src as string} depthTexture={(el as WebGl).depthSrc as string}/>
+        case TYPE.Iframe:
+            return <iframe data-index={(keys[getIndex(keys)] = el.key ?? '')}  { ...(delete el.key && el as AosAttrs) } className={el.className} src={(el as Image).src as string} style={el.style}/>;
+        case TYPE.Span:
         default:
-            return <span data-index={(keys[getIndex(keys)] = el.key ?? '')} { ...(delete el.key && el as AosAttrs) } className={el.className}  style={el.style}>{el.content}</span>;
+            return <span data-index={(keys[getIndex(keys)] = el.key ?? '')} { ...(delete el.key && el as AosAttrs) } className={el.className}  style={el.style}>{el?.content}</span>;
     }
+}
 
 /**
  * Renders a Section Component based on the data contained in 
@@ -75,7 +59,7 @@ function ElementMapper({element, index}: React.PropsWithRef<{element: ContentEle
  * @date 2024-03-03
  * @param { SectionProps } parm1
  */
-const Section = ({ id, content }: SectionProps): JSX.Element => {
+const Section = ({ id, content }: SectionProps) => {
     return (
         <section id={id} style={content.style} className={content.className}>
             {content.elements.map((el, idx) => <ElementMapper key={el.key} data-index={el.key} element={el as ContentElement} index={idx} />)}
